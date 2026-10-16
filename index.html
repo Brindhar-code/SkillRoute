@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Discover internships, hackathons, projects, and learning opportunities for students.">
+
+    <title>SkillRoute | Student Opportunity Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">S</span>
+            SkillRoute
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#opportunities">Opportunities</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <a href="#opportunities" class="nav-button">Explore Now ↗</a>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    YOUR NEXT CHAPTER STARTS HERE
+                </div>
+
+                <h1>
+                    Find your next<br>
+                    <span>opportunity.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover internships, hackathons, real-world projects,
+                    and learning opportunities designed to help students
+                    build their future.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#opportunities" class="primary-button">
+                        Explore Opportunities <span>→</span>
+                    </a>
+
+                    <a href="#about" class="secondary-button">
+                        Learn More
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span>✦</span>
+                    Your skills. Your goals. Your next opportunity.
+                </div>
+
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+
+                <div class="visual-glow"></div>
+
+                <div class="visual-card card-top">
+                    <span class="visual-icon green-icon">⌘</span>
+                    <div>
+                        <strong>Build your skills</strong>
+                        <small>Learn by doing</small>
+                    </div>
+                    <span class="mini-check">✓</span>
+                </div>
+
+                <div class="visual-center">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="center-symbol">
+                        <span>↗</span>
+                    </div>
+
+                    <span class="orbit-dot dot-one"></span>
+                    <span class="orbit-dot dot-two"></span>
+                    <span class="orbit-dot dot-three"></span>
+                </div>
+
+                <div class="visual-card card-bottom">
+                    <span class="visual-icon purple-icon">✳</span>
+                    <div>
+                        <strong>Explore possibilities</strong>
+                        <small>Take your next step</small>
+                    </div>
+                    <span class="mini-arrow">↗</span>
+                </div>
+
+                <div class="floating-label">
+                    <span>✦</span> Made for students
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats-section" aria-label="Project highlights">
+
+            <div class="stat-item">
+                <span class="stat-icon">◎</span>
+                <div>
+                    <strong>Discover</strong>
+                    <p>New opportunities</p>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <span class="stat-icon">↗</span>
+                <div>
+                    <strong>Explore</strong>
+                    <p>Different career paths</p>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <span class="stat-icon">✳</span>
+                <div>
+                    <strong>Grow</strong>
+                    <p>Skills and experience</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Opportunities Section -->
+        <section class="opportunities-section" id="opportunities">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-eyebrow">YOUR NEXT STEP</span>
+
+                    <h2>
+                        Opportunities that<br>
+                        <span>move you forward.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        Find something worth learning, building, or applying for.
+                    </p>
+                </div>
+
+                <div class="results-summary" aria-live="polite">
+                    <span class="summary-dot"></span>
+                    <span id="resultsCount">Loading opportunities...</span>
+                </div>
+
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="filter-panel">
+
+                <div class="search-wrapper">
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search opportunities, skills, companies..."
+                        aria-label="Search opportunities"
+                        autocomplete="off"
+                    >
+
+                    <kbd>SEARCH</kbd>
+                </div>
+
+                <div class="filter-row">
+
+                    <div class="category-filters">
+                        <label for="categoryFilter">Category</label>
+
+                        <select id="categoryFilter">
+                            <option value="all">All categories</option>
+                            <option value="Internship">Internships</option>
+                            <option value="Hackathon">Hackathons</option>
+                            <option value="Project">Projects</option>
+                            <option value="Course">Courses</option>
+                        </select>
+                    </div>
+
+                    <div class="sort-filter">
+                        <label for="sortFilter">Sort by</label>
+
+                        <select id="sortFilter">
+                            <option value="featured">Featured first</option>
+                            <option value="title-asc">Title: A–Z</option>
+                            <option value="title-desc">Title: Z–A</option>
+                            <option value="company-asc">Company: A–Z</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="clearFilters" class="clear-button">
+                        ↺ Clear filters
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Opportunity Cards -->
+            <div id="opportunitiesGrid" class="opportunities-grid">
+
+                <div class="loading-state">
+                    <div class="loader"></div>
+                    <p>Finding opportunities for you...</p>
+                </div>
+
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state" hidden>
+
+                <div class="empty-icon">⌕</div>
+
+                <h3>No opportunities found</h3>
+
+                <p>
+                    Try a different keyword or change your selected category.
+                </p>
+
+                <button type="button" id="resetSearch" class="primary-button">
+                    Reset search ↗
+                </button>
+
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state" hidden>
+
+                <div class="error-icon">!</div>
+
+                <h3>We couldn't load the opportunities</h3>
+
+                <p id="errorMessage">
+                    Please check your connection and try again.
+                </p>
+
+                <button type="button" id="retryButton" class="primary-button">
+                    Try again ↻
+                </button>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-wrapper" id="paginationWrapper">
+
+                <p id="pageInfo">Page 1</p>
+
+                <div class="pagination-controls">
+                    <button type="button" id="prevPage" aria-label="Previous page">
+                        ←
+                    </button>
+
+                    <div id="pageNumbers" class="page-numbers"></div>
+
+                    <button type="button" id="nextPage" aria-label="Next page">
+                        →
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+
+            <div class="about-symbol">
+                <span>↗</span>
+            </div>
+
+            <div class="about-content">
+
+                <span class="section-eyebrow">WHY SKILLROUTE?</span>
+
+                <h2>
+                    Your journey is<br>
+                    <span>just getting started.</span>
+                </h2>
+
+                <p>
+                    SkillRoute is a student-focused opportunity explorer
+                    designed to help learners discover internships,
+                    hackathons, projects, and courses in one place.
+                </p>
+
+                <p class="about-note">
+                    Built as a frontend development project for learning
+                    and exploring career opportunities.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <a href="#home" class="logo footer-logo">
+            <span class="logo-icon">S</span>
+            SkillRoute
+        </a>
+
+        <p>Discover opportunities. Build your future.</p>
+
+        <a href="#home" class="back-to-top">Back to top ↑</a>
+
+    </footer>
+    <!-- Opportunity Details Modal -->
+<div
+    class="modal-overlay"
+    id="opportunityModal"
+    hidden
+    aria-hidden="true"
+>
+    <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+        <button
+            class="modal-close"
+            id="modalClose"
+            type="button"
+            aria-label="Close opportunity details"
+        >
+            &times;
+        </button>
+
+        <span class="modal-category" id="modalCategory">
+            Internship
+        </span>
+
+        <h2 id="modalTitle">Opportunity Title</h2>
+
+        <p class="modal-company" id="modalCompany"></p>
+
+        <div class="modal-details">
+            <div class="modal-detail-item">
+                <span class="modal-detail-icon">📍</span>
+                <div>
+                    <small>Location</small>
+                    <p id="modalLocation"></p>
+                </div>
+            </div>
+
+            <div class="modal-detail-item">
+                <span class="modal-detail-icon">⏳</span>
+                <div>
+                    <small>Duration</small>
+                    <p id="modalDuration"></p>
+                </div>
+            </div>
+
+            <div class="modal-detail-item">
+                <span class="modal-detail-icon">🎯</span>
+                <div>
+                    <small>Opportunity type</small>
+                    <p id="modalType"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-description">
+            <h3>About this opportunity</h3>
+            <p id="modalDescription"></p>
+        </div>
+
+        <div class="modal-skills-section">
+            <h3>Skills to explore</h3>
+            <div id="modalSkills" class="modal-skills"></div>
+        </div>
+
+        <div class="modal-footer">
+            <p class="modal-note">
+                This is a sample listing created for the SkillRoute demo.
+            </p>
+
+            <button
+                class="modal-done-button"
+                id="modalDone"
+                type="button"
+            >
+                Got it
+            </button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
